@@ -1,0 +1,29 @@
+{
+    "name"  : "zer0-framework/memcached",
+    "type"  : "library",
+    "keywords": ["Zer0", "highload"],
+    "homepage": "https://github.com/zer0-framework/memcached",
+    "license" : "GPL-3.0-or-later",
+    "description": "",
+    "authors" : [
+        {
+            "name"      : "Vasily Zorin",
+            "email"     : "kak.serpom.po.yaitsam@gmail.com",
+            "role"      : "Maintainer"
+        }
+    ],
+    "support" : {
+        "email" : "kak.serpom.po.yaitsam@gmail.com",
+        "issues": "https://github.com/zer0-framework/memcached/issues"
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext/memcached": "*",
+        "cheprasov/php-memcached-tags": "^1.0"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
