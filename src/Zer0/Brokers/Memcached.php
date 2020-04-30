@@ -2,10 +2,9 @@
 
 namespace Zer0\Brokers;
 
-use RedisClient\RedisClient;
 use Zer0\Config\Interfaces\ConfigInterface;
-use Zer0\Drivers\Redis\RedisDebug;
-use Zer0\Drivers\Redis\Tracy\BarPanel;
+use Zer0\Drivers\Memcached\MemcachedDebug;
+use Zer0\Drivers\Memcached\Tracy\BarPanel;
 use Zer0\Model\Exceptions\UnsupportedActionException;
 
 /**
@@ -27,7 +26,7 @@ class Memcached extends Base
 
         $tracy = $this->app->factory('Tracy');
         if ($tracy !== null) {
-            $memcached = new RedisDebug($memcached);
+            $memcached = new MemcachedDebug($memcached);
             $tracy->addPanel(new BarPanel($memcached));
             $this->app->factory('HTTP')->on('endRequest', function () use ($memcached) {
                 $memcached->resetQueryLog();
@@ -40,7 +39,7 @@ class Memcached extends Base
     /**
      * @param string $name
      * @param bool $caching
-     * @return RedisClient
+     * @return \Memcached
      */
     public function get(string $name = '', bool $caching = true)
     {

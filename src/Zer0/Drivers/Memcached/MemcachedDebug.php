@@ -2,7 +2,6 @@
 
 namespace Zer0\Drivers\Memcached;
 
-use MemcachedClient\MemcachedClient;
 use Zer0\Drivers\Traits\QueryLog;
 
 /**
@@ -19,15 +18,15 @@ class MemcachedDebug
     protected $transaction;
 
     /**
-     * @var MemcachedClient
+     * @var \Memcached
      */
     protected $memcached;
 
     /**
      * MemcachedDebug constructor.
-     * @param MemcachedClient $memcached
+     * @param \Memcached $memcached
      */
-    public function __construct(MemcachedClient $memcached)
+    public function __construct(\Memcached $memcached)
     {
         $this->memcached = $memcached;
         $this->queryLogging = true;
